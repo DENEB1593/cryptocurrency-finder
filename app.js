@@ -1,6 +1,5 @@
 const URL = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=100&currency=KRW';
 
-
 /*
 {
     "id": "bitcoin",
@@ -43,10 +42,9 @@ document.getElementById('search').addEventListener('input', (e) => {
     });
 });
 
-
 function setCoins(coins, search) {
-    if (coins.length === 0) 
-        return;
+    const coinContent = document.getElementById('coin_content');
+
 
     const content = coins
                 .filter(coin => coin.name.toLowerCase().includes(search))
@@ -68,10 +66,17 @@ function setCoins(coins, search) {
                 })
                 .join('');
 
-    document.getElementById('coin_content').innerHTML = content;
+    if (content == '') {
+        coinContent.innerHTML = '<tr class="coin-table-row"><td colspan="6" class="no-search">No search results found</td></tr>';
+        return;
+    }
+
+    coinContent.innerHTML = content;
 }
 
 function toKRW(currency) {
-    return new Intl.NumberFormat('ko-KR',
-     { style: 'currency', currency: 'KRW' }).format(currency);
+    return new Intl.NumberFormat('ko-KR', { 
+        style: 'currency', currency: 'KRW'
+     })
+    .format(currency);
 }
