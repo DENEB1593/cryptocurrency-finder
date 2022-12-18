@@ -25,13 +25,14 @@ input:focus { outline: none; }
 .search:focus { outline: none; border-bottom: 2px solid #cd822c; }
 
 /*crypto table*/
-.crypto-table { width: 1000px; border-collapse: separate; border-spacing: 0 1em; }
-.crypto-table thead { background-color: #e3943a; color:black; text-align: center; }
-.crypto-table tbody tr { text-align: center; }
+.crypto-table { width: 1000px; border-collapse: collapse; border-spacing: 0 1em; }
+.crypto-table thead { background-color: #e3943a; color:black; text-align: center; color: white;}
+.crypto-table tbody tr { text-align: center; border-bottom: 1px solid #dddddd; }
+.crypto-table tbody tr:last-of-type { border-bottom: 2px solid #e3943a; }
 .crypto-table .rank { text-align: center; font-weight: bold; }
 .crypto-table .logo { display: flex; justify-content: center; align-items: center; gap: 10px; }
 
-.crypto-table .no-search { font-size: 1rem; font-weight: bold; }
+.crypto-table .no-search { font-size: 1rem; font-weight: bold; height: 10vh;}
 .crypto-table .no-search::before { 
     display: inline-block;
     background-image: url('/images/search.png');
